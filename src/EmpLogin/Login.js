@@ -7,14 +7,15 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: "",
-      emp_id: "",
-      pwd: "",
+      empid: "",
+      empidError: "",
+      password: "",
+      passwordError: "",
     };
     this.handleDateChange = this.handleDateChange.bind(this);
-    this.handleEmpidChange = this.handleEmpidChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    //     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleDateChange(date) {
@@ -23,24 +24,52 @@ class Login extends Component {
     });
   }
 
-  handleEmpidChange(event) {
-    this.setState({ emp_id: event.target.value }); //setting state seperately
-  }
-  handlePasswordChange(event) {
-    this.setState({ pwd: event.target.value });
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+    if (event.target.name === "empid") {
+      this.setState({ empidError: "" });
+    }
+    if (event.target.name === "password") {
+      this.setState({ passwordError: "" });
+    }
   }
 
-  onFormSubmit(event) {
+  validate = () => {
+    let empidError = "";
+    let passwordError = "";
+
+    if (!this.state.empid) {
+      empidError = "PF Number is required!";
+    }
+
+    if (!this.state.password) {
+      passwordError = "Password is required!";
+    }
+
+    if (empidError || passwordError) {
+      this.setState({ empidError, passwordError });
+      return false;
+    }
+
+    return true;
+  };
+
+  handleSubmit = (event) => {
     event.preventDefault();
-    alert(
-      `Hi my ID number is ${this.state.emp_id} and my password is ${this.state.pwd} and date of joining is ${this.state.selectedDate}`
-    );
-  }
+    const isValid = this.validate();
+    if (isValid) {
+      alert(this.state.empid, this.state.password);
+    } else {
+      alert("message");
+    }
+  };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.onFormSubmit} action="/action_page.php">
+        <form onSubmit={this.handleSubmit} action="/action_page.php">
           <div className="div">
             <h2>Employee Login Portal</h2>
           </div>
@@ -54,13 +83,13 @@ class Login extends Component {
               type="number"
               value={this.state.value}
               name="empid"
-              onChange={this.handleEmpidChange}
+              onChange={this.handleChange}
               placeholder="Enter Employee ID"
               className="empid"
             />
           </div>
           <span style={{ fontSize: 12, color: "red" }}>
-            <b>{this.state.pfnoError}</b>
+            <b>{this.state.empidError}</b>
           </span>
 
           <div className="div">
@@ -71,12 +100,15 @@ class Login extends Component {
             <input
               type="password"
               name="Pwd"
-              onChange={this.handlePasswordChange}
+              onChange={this.handleChange}
               value={this.state.value}
               placeholder="Enter Password"
               className="pwd"
             />
           </div>
+          <span style={{ fontSize: 12, color: "red" }}>
+            <b>{this.state.passwordError}</b>
+          </span>
 
           <div className="div">
             <label>Date</label>
