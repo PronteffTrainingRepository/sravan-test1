@@ -11,11 +11,10 @@ class Login extends Component {
       empidError: "",
       password: "",
       passwordError: "",
-      selectedDate: new Date(),
     };
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
+    //     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -35,30 +34,41 @@ class Login extends Component {
     if (event.target.name === "password") {
       this.setState({ passwordError: "" });
     }
+    if (event.target.name === "date") {
+      this.setState({ dateError: "" });
+    }
   }
 
   validate = () => {
     let empidError = "";
     let passwordError = "";
+    let dateError = "";
 
     if (!this.state.empid) {
       empidError = "Empid  is required!";
+    }
+
+    if (!this.state.selectedDate) {
+      dateError = "date  is required!";
     }
 
     if (!this.state.password) {
       passwordError = "Password is required!";
     }
 
-    if (empidError || passwordError) {
-      this.setState({ empidError, passwordError });
+    if (empidError || passwordError || dateError) {
+      this.setState({ empidError, passwordError, dateError });
       let err = empidError;
       let err1 = passwordError;
-      if (err && err1) {
+      let err2 = dateError;
+      if (err && err1 && dateError) {
         alert("empid and password is required");
       } else if (err) {
-        alert(err);
+        alert(`${err}`);
       } else if (err1) {
         alert(err1);
+      } else if (err2) {
+        alert(err2);
       }
 
       return false;
@@ -129,14 +139,13 @@ class Login extends Component {
 
           <div className="div">
             <DatePicker
-              selected={this.state.selectedDate}
-              onChange={this.handleDateChange}
+              selected={this.state.value}
+              onChange={this.handleChange}
               name="startDate"
               dateFormat="dd/MM/yyyy"
               isClearable
               scrollableMonthYearDropdown
               showYearDropdown
-              placeholderText="select date"
             />
           </div>
 

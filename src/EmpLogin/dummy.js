@@ -76,10 +76,10 @@ console.log(err);
 
     
 
-<InputGroupclassName="mb-3">
-<InputGroupAddonaddonType="prepend">
+<InputGroup className="mb-3">
+<InputGroupAddon addon Type="prepend">
 <InputGroupText>
-<iclassName="icon-user"></i>
+<i className="icon-user"></i>
 </InputGroupText>
 </InputGroupAddon>
 <Input
@@ -89,8 +89,8 @@ name="pfno"
 value={this.state.pfno}
 onChange={this.handleChange}
 />
-<spanstyle={{ fontSize:12, color:"red" }}>
+<span style={{ fontSize:12, color:"red" }}>
 <b>{this.state.pfnoError}</b>
 </span>
-</InputGroup>
-
+</InputGroup >
+  
