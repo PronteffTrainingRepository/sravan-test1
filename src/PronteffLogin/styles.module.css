@@ -1,0 +1,70 @@
+.content {
+  margin: 0 35% 0 35%;
+  border: 1px red;
+  border-radius: 20px;
+  background-color: #045274;
+}
+
+.body {
+  box-sizing: border-box;
+  padding: 20px 0 20px 0;
+  background-color: whitesmoke;
+}
+img {margin: 10px;
+        padding: 10px;
+  height: 200px;
+  background-color: rgb(69, 63, 77);
+  border-radius: 10px;
+}
+
+input[type=number] {
+  border-width: 0 0 2px 0;
+  
+  background-color: white;
+  width: 300px;
+}
+input[type=password] {
+  border-width: 0 0 2px 0;
+  
+  background-color: white;
+  width: 300px;
+}
+.fb  {
+  width: 140px;
+  background-color: #295B98;
+  height: 40px;
+  border-radius: 10px;
+  border-width: 1px;
+  margin: 5px;
+}
+.twitter{
+  width: 140px;
+  background-color:#00ADEF;
+  height: 40px;
+  border-radius: 10px;
+  border-width: 1px;
+  margin: 5px;
+}
+.submit {
+  width: 300px;
+  background-color:#2AA6B2;
+  height: 40px;
+  border-radius: 10px;
+  color: white;
+
+  margin: 15px;
+}
+.link{
+        text-decoration: none;
+        color: rgb(204, 192, 192);
+}
+
+
+/* #inputID::placeholder {
+    color: white;
+    opacity: 1;
+}
+#PasswordID::placeholder {
+    color: white;
+    opacity: 1;
+} */

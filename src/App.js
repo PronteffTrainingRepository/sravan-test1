@@ -1,11 +1,17 @@
 import React from "react";
 // import logo from './logo.svg';
 import "./App.css";
-import Login from "./EmpLogin/Login";
+// import Login from "./EmpLogin/Login";
 // import LoginValidation from "./EmpLogin/LoginValidation";
 // import Login from '../src/EmpLogin/Log'
 import Registration from "./RegistrationForm/Registration";
-import RegistrationForm from "./RegistrationForm/RegistrationForm";
+// import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import NewRegForm from "./RegistrationForm/NewRegForm";
+
+import dummy from "./RegistrationForm/dummy";
+
+import Login from "./PronteffLogin/Login";
+
 
 function App() {
   return (
@@ -14,8 +20,11 @@ function App() {
       {/* <LoginValidation/> */}
       {/* <Login/> */}
 
-      <RegistrationForm />
+      {/* <RegistrationForm /> */}
       {/* <Registration /> */}
+      {/* <NewRegForm/> */}
+      {/* <dummy/> */}
+      <Login />
     </div>
   );
 }

@@ -79,7 +79,7 @@ class RegistrationForm extends Component {
 
   handleSubmit(event) {
     alert(
-      `Employee name is ${this.state.Name} Id number ${this.state.Id} Designatation is ${this.state.Designatation} and Discription is ${this.state.Discription} ${this.state.Technologies}`
+      `Employee name is ${this.state.Name} Id number ${this.state.Id} Designatation is ${this.state.Designatation} and Discription is ${this.state.Discription} ${this.state.techs}`
     );
     event.preventDefault();
   }
@@ -144,15 +144,15 @@ class RegistrationForm extends Component {
               id="male"
               name="gender"
               value="male"
-              checked={this.state.selectedOption === "male"}
-              onChange={this.handleRadioChange}
+        //       checked={this.state.selectedOption === "male"}
+        //       onChange={this.handleRadioChange}
             />
             Male
             <input
               type="radio"
               id="female"
-              checked={this.state.selectedOption === "female"}
-              onChange={this.handleRadioChange}
+        //       checked={this.state.selectedOption === "female"}
+        //       onChange={this.handleRadioChange}
               name="gender"
               value="female"
             />
